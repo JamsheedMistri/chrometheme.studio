@@ -1,0 +1,29 @@
+.tab:first-child .roundFarLeft, .tab:last-child .roundFarRight {
+	visibility: visible;
+}
+
+.roundFarLeft, .roundFarRight {
+	visibility: hidden;
+}
+
+.tabContainer {
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+
+	padding: 8px 10px;
+	border-top-left-radius: 9px;
+	border-top-right-radius: 9px;
+}
+
+.tabContainer img {
+	width: 17px;
+	height: 17px;
+	margin-right: 6px;
+}
+
+.tabTitle {
+	font-size: 0.75em;
+	width: 183px;
+}

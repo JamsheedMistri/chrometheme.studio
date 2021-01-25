@@ -1,0 +1,41 @@
+.container {
+	z-index: 50;
+	position: absolute;
+	width: 100%;
+
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 5px 0;
+
+	border-bottom: 1px solid #edeff2;
+}
+
+.container .topLevelControl:first-of-type {
+	margin-left: 7px;
+}
+
+.container .topLevelControl:last-of-type {
+	margin-right: 7px;
+}
+
+.topLevelControl {
+	padding: 0 5px;
+}
+
+.urlBar {
+	background: rgba(0, 0, 0, 0.06);
+	font-size: 0.9em;
+	padding: 6px 5px;
+	margin: 0 5px;
+	border-radius: 9999px;
+	width: calc(100% - 7px - ((21px + 5px + 5px) * 3) - 20px - 24px - (5px * 4) - 7px);
+
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.urlBar svg {
+	padding: 0 7px 0 5px;
+}

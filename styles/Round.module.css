@@ -1,0 +1,22 @@
+.roundContainer {
+	position: absolute;
+	display: inline;
+}
+
+.round {
+	width: 16px;
+	height: 16px;
+	border: 6px solid transparent;
+	border-radius: 100%;
+	margin-top: 11px;
+}
+
+.roundLeft {
+	transform: rotate(45deg);
+	margin-left: -22px;
+}
+
+.roundRight {
+	transform: rotate(-45deg);
+	margin-left: -6px;
+}

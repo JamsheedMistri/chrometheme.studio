@@ -1,0 +1,36 @@
+.container {
+	display: inline-flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+.colorCategories {
+	height: 80vh;
+	overflow-y: scroll;
+}
+
+.colorCategories, .colorPicker {
+	width: 50%;
+}
+
+.categoryButton {
+	border: none;
+	display: block;
+	margin: 20px;
+	font-size: 1em;
+	border-radius: 9px;
+	padding: 10px 20px;
+}
+
+.categoryButton:focus {
+	outline: none;
+}
+
+.categoryButton:hover {
+	cursor: pointer;
+	transform: translateY(-2px);
+}
+
+.categoryButton:active {
+	transform: translateY(1px);
+}
