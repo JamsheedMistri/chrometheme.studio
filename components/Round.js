@@ -1,11 +1,10 @@
 import styles from '../styles/Round.module.css';
-import { useContext } from 'react';
-import { GlobalContext } from '../context/GlobalContext';
+import { getBackgroundTabColor, getToolbarColor } from '../utils/BrowserState';
 
 export default function Round({ active, side }) {
-	const { colors } = useContext(GlobalContext);
-	const roundLeftStyle = { borderRightColor: active ? colors.toolbar : colors.backgroundTab };
-	const roundRightStyle = { borderLeftColor: active ? colors.toolbar : colors.backgroundTab };
+	const roundColor = active ? getToolbarColor() : getBackgroundTabColor();
+	const roundLeftStyle = { borderRightColor: roundColor };
+	const roundRightStyle = { borderLeftColor: roundColor };
 
 	return (
 		<div className={styles.roundContainer}>

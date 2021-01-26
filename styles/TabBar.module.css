@@ -1,8 +1,30 @@
 .container {
 	display: flex;
-	padding: 11px 0 0 11px;
+	padding: 9px 0 0 11px;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
-	overflow-x: hidden;
+	overflow: hidden;
 	position: relative;
+}
+
+.newTabDivider {
+	margin-top: 6px;
+	height: 21px;
+	border-right: 1px solid #696969;
+}
+
+.newTabButtonContainer {
+	display: flex;
+	align-items: center;
+	margin-left: 6px;
+}
+
+.newTabButton {
+	border-radius: 9999px;
+	width: 25px;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-left: 1px;
 }

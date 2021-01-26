@@ -1,11 +1,3 @@
-.tab:first-child .roundFarLeft, .tab:last-child .roundFarRight {
-	visibility: visible;
-}
-
-.roundFarLeft, .roundFarRight {
-	visibility: hidden;
-}
-
 .tabContainer {
 	display: inline-flex;
 	flex-direction: row;

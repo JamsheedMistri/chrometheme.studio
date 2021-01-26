@@ -1,0 +1,17 @@
+.bookmark {
+	margin-right: 7px;
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.bookmark img {
+	width: 17px;
+	height: 17px;
+	margin-right: 7px;
+}
+
+.bookmarkName {
+	font-size: 0.75em;
+	margin-right: 10px;
+}

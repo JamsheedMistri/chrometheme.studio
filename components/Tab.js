@@ -1,20 +1,19 @@
 import styles from '../styles/Tab.module.css';
 import Round from './Round';
-import { useContext } from 'react';
-import { GlobalContext } from '../context/GlobalContext';
+import { getBackgroundTabColor, getToolbarColor, getTabTextColor, getTabBackgroundTextColor } from '../utils/BrowserState';
 
-export default function Tab({ active, title, favicon }) {
-	const { colors } = useContext(GlobalContext);
-	const tabContainerStyle = { background: active ? colors.toolbar : colors.backgroundTab };
+export default function Tab({ active, position, title, favicon }) {
+	const tabStyle = {
+		background: active ? getToolbarColor() : getBackgroundTabColor(),
+		color: active ? getTabTextColor() : getTabBackgroundTextColor(),
+		fill: active ? getTabTextColor() : getTabBackgroundTextColor()
+	}
 
 	return (
 		<div className={styles.tab}>
-			<span className={styles.roundFarLeft}>
-				{ !active && <Round active={false} side="left" /> }
-			</span>
-
 			{ active && <Round active={true} side="left" /> }
-			<div className={styles.tabContainer} style={tabContainerStyle}>
+			{ position == "first" && <Round active={false} side="left" /> }
+			<div className={styles.tabContainer} style={tabStyle}>
 				<img src={favicon} />
 				<span className={styles.tabTitle}>{title}</span>
 				{/* Credit: https://www.materialui.co/icon/close */}
@@ -22,11 +21,8 @@ export default function Tab({ active, title, favicon }) {
 					<path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"/>
 				</svg>
 			</div>
+			{ position == "last" && <Round active={false} side="right" /> }
 			{ active && <Round active={true} side="right" /> }
-
-			<span className={styles.roundFarRight}>
-				{ !active && <Round active={false} side="right" /> }
-			</span>
 		</div>
 	);
 }
