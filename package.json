@@ -8,6 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "archiver": "^5.2.0",
+    "classnames": "^2.2.6",
+    "http": "0.0.1-security",
     "next": "10.0.5",
     "react": "17.0.1",
     "react-color": "^2.19.3",

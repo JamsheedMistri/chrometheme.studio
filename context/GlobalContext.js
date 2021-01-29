@@ -1,9 +1,9 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-	// Colors
+	//s
 	const [frame, setFrame] = useState('#dee1e6');
 	const [frameInactive, setFrameInactive] = useState('#e7eaed');
 	const [frameIncognito, setFrameIncognito] = useState('#202124');
@@ -46,98 +46,140 @@ export const GlobalProvider = ({ children }) => {
 	
 	const colorCategories = [
 		{
-			name: "Frame Color",
+			id: "frame_active",
+			name: "Frame",
 			color: frame,
-			update: setFrame
+			update: setFrame,
+			type: "active",
 		},
 		{
-			name: "Inactive Frame Color",
+			id: "frame_inactive",
+			name: "Frame",
 			color: frameInactive,
-			update: setFrameInactive
+			update: setFrameInactive,
+			type: "inactive",
 		},
 		{
-			name: "Incognito Frame Color",
+			id: "frame_incognito",
+			name: "Frame",
 			color: frameIncognito,
-			update: setFrameIncognito
+			update: setFrameIncognito,
+			type: "incognito",
 		},
 		{
-			name: "Inactive Incognito Frame Color",
+			id: "frame_incognito_inactive",
+			name: "Frame",
 			color: frameIncognitoInactive,
-			update: setFrameIncognitoInactive
+			update: setFrameIncognitoInactive,
+			type: "inactive_incognito",
 		},
 		{
-			name: "Background Tab Color",
+			id: "background_tab_active",
+			name: "Background Tab",
 			color: backgroundTab,
-			update: setBackgroundTab
+			update: setBackgroundTab,
+			type: "active",
 		},
 		{
-			name: "Inactive Background Tab Color",
+			id: "background_tab_inactive",
+			name: "Background Tab",
 			color: backgroundTabInactive,
-			update: setBackgroundTabInactive
+			update: setBackgroundTabInactive,
+			type: "inactive",
 		},
 		{
-			name: "Incognito Background Tab Color",
+			id: "background_tab_incognito",
+			name: "Background Tab",
 			color: backgroundTabIncognito,
-			update: setBackgroundTabIncognito
+			update: setBackgroundTabIncognito,
+			type: "incognito",
 		},
 		{
-			name: "Inactive Incognito Background Tab Color",
+			id: "background_tab_inactive_incognito",
+			name: "Background Tab",
 			color: backgroundTabIncognitoInactive,
-			update: setBackgroundTabIncognitoInactive
+			update: setBackgroundTabIncognitoInactive,
+			type: "inactive_incognito",
 		},
 		{
-			name: "Bookmark Text Color",
-			color: bookmarkText,
-			update: setBookmarkText
-		},
-		{
-			name: "Background Tab Text Color",
+			id: "background_tab_text_active",
+			name: "Background Tab Text",
 			color: tabBackgroundText,
-			update: setTabBackgroundText
+			update: setTabBackgroundText,
+			type: "active",
 		},
 		{
-			name: "Inactive Background Tab Text Color",
+			id: "background_tab_text_inactive",
+			name: "Background Tab Text",
 			color: tabBackgroundTextInactive,
-			update: setTabBackgroundTextInactive
+			update: setTabBackgroundTextInactive,
+			type: "inactive",
 		},
 		{
-			name: "Incognito Background Tab Text Color",
+			id: "background_tab_text_incognito",
+			name: "Background Tab Text",
 			color: tabBackgroundTextIncognito,
-			update: setTabBackgroundTextIncognito
+			update: setTabBackgroundTextIncognito,
+			type: "incognito",
 		},
 		{
-			name: "Inactive Incognito Background Tab Text Color",
+			id: "background_tab_text_inactive_incognito",
+			name: "Background Tab Text",
 			color: tabBackgroundTextIncognitoInactive,
-			update: setTabBackgroundTextIncognitoInactive
+			update: setTabBackgroundTextIncognitoInactive,
+			type: "inactive_incognito",
 		},
 		{
-			name: "Tab Text Color",
-			color: tabText,
-			update: setTabText
-		},
-		{
-			name: "Toolbar Color",
+			id: "toolbar",
+			name: "Toolbar",
 			color: toolbar,
-			update: setToolbar
+			update: setToolbar,
+			type: "universal",
 		},
 		{
-			name: "Toolbar Button Icon Color",
+			id: "toolbar_button_icon",
+			name: "Toolbar Button Icon",
 			color: toolbarButtonIcon,
-			update: setToolbarButtonIcon
+			update: setToolbarButtonIcon,
+			type: "universal",
 		},
 		{
-			name: "URL Bar Text Color",
+			id: "omnibox_text",
+			name: "URL Bar Text",
 			color: omniboxText,
-			update: setOmniboxText
+			update: setOmniboxText,
+			type: "universal",
 		},
 		{
-			name: "URL Bar Background Color",
+			id: "omnibox_background",
+			name: "URL Bar Background",
 			color: omniboxBackground,
-			update: setOmniboxBackground
+			update: setOmniboxBackground,
+			type: "universal",
+		},
+		{
+			id: "tab_text",
+			name: "Tab Text",
+			color: tabText,
+			update: setTabText,
+			type: "universal",
+		},
+		{
+			id: "bookmark_text",
+			name: "Bookmark Text",
+			color: bookmarkText,
+			update: setBookmarkText,
+			type: "universal",
 		},
 	];
 
+	const [currentCategoryID, setCurrentCategoryID] = useState("toolbar");
 	const [currentCategory, setCurrentCategory] = useState(colorCategories[0]);
+
+	useEffect(() => {
+		setCurrentCategory(colorCategories.filter(category => category.id == currentCategoryID)[0]);
+	}, [currentCategoryID]);
+
 	
 	// Browser state
 	const [inactive, setInactive] = useState(false);
@@ -146,7 +188,8 @@ export const GlobalProvider = ({ children }) => {
 	return (
 		<GlobalContext.Provider value={{
 			currentCategory,
-			setCurrentCategory,
+			currentCategoryID,
+			setCurrentCategoryID,
 			colorCategories,
 			colors,
 			inactive,

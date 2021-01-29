@@ -81,3 +81,8 @@ export function getOmniboxBackgroundColor() {
 	const { colors } = useContext(GlobalContext);
 	return colors.omniboxBackground;
 }
+
+export function isIncognito() {
+	const { incognito } = useContext(GlobalContext);
+	return incognito;
+}
