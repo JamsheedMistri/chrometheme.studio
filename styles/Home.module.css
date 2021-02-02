@@ -3,6 +3,8 @@
 	color: white;
 	width: 100vw;
 	height: 100vh;
+	user-select: none;
+	overflow: scroll;
 }
 
 .browserPreview {

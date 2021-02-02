@@ -3,7 +3,6 @@ import { createContext, useState, useEffect } from 'react';
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-	//s
 	const [frame, setFrame] = useState('#dee1e6');
 	const [frameInactive, setFrameInactive] = useState('#e7eaed');
 	const [frameIncognito, setFrameIncognito] = useState('#202124');
@@ -173,17 +172,36 @@ export const GlobalProvider = ({ children }) => {
 		},
 	];
 
+	const resetToDefaults = () => {
+		setFrame('#dee1e6');
+		setFrameInactive('#e7eaed');
+		setFrameIncognito('#202124');
+		setFrameIncognitoInactive('#3c4043');
+		setBackgroundTab('#dee1e6');
+		setBackgroundTabInactive('#e7eaed');
+		setBackgroundTabIncognito('#202124');
+		setBackgroundTabIncognitoInactive('#3c4043');
+		setBookmarkText('#3a3e41');
+		setTabBackgroundText('#3c4043');
+		setTabBackgroundTextInactive('#666a6d');
+		setTabBackgroundTextIncognito('#bdc1c6');
+		setTabBackgroundTextIncognitoInactive('#a7abae');
+		setTabText('#3c4043');
+		setToolbar('#ffffff');
+		setToolbarButtonIcon('#626365');
+		setOmniboxText('#202124');
+		setOmniboxBackground('#e9ebec');
+	}
+
 	const [currentCategoryID, setCurrentCategoryID] = useState("toolbar");
 	const [currentCategory, setCurrentCategory] = useState(colorCategories[0]);
+	const [inactive, setInactive] = useState(false);
+	const [incognito, setIncognito] = useState(false);
 
+	// Change the current category if the ID changes
 	useEffect(() => {
 		setCurrentCategory(colorCategories.filter(category => category.id == currentCategoryID)[0]);
 	}, [currentCategoryID]);
-
-	
-	// Browser state
-	const [inactive, setInactive] = useState(false);
-	const [incognito, setIncognito] = useState(false);
 
 	return (
 		<GlobalContext.Provider value={{
@@ -196,6 +214,7 @@ export const GlobalProvider = ({ children }) => {
 			setInactive,
 			incognito,
 			setIncognito,
+			resetToDefaults,
 		}}>
 			{children}
 		</GlobalContext.Provider>

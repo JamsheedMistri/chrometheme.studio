@@ -1,57 +1,71 @@
-.siteTitle {
-	
-}
-
 .container {
 	width: calc(100% - 4vw);
 	margin: 0 2vw;
-}
-
-.mainContent {
-	display: flex;
-	flex-direction: row;
-}
-
-.colorCategories {
-	display: inline-flex;
-	flex-direction: row;
-	flex-grow: 5;
+	padding-bottom: 20vh;
 }
 
 .headerContainer {
-	display: inline-flex;
-	flex-direction: row;
-	width: 100%;
+	margin: 0 2vw;
 }
 
-.headerContainer div {
-	flex: 1;
+.titleContainer {
+	display: block;
+}
+
+.siteTitle {
+	margin-bottom: 3px;
+}
+
+.subtitle {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-weight: 400;
+	font-size: 1.25em;
 }
 
 .currentEditing {
-	text-align: right;
+	text-align: left;
+	display: block;
 }
 
-.colorPicker {
-	flex-grow: 1;
-	text-align: right;
+.preTitle {
+	margin-bottom: 0;
+	font-weight: 400;
 }
 
-.colorPickerPicker {
-	float: right;
+.title {
+	margin-top: 0;
+}
+
+.mainContent {
+	display: block;
+}
+
+.colorCategories {
+	display: block;
+	width: 100%;
 }
 
 .colorCategory {
-	flex: 1;
 	padding: 0 15px;
+	flex: none;
+	width: calc(100% - 30px);
 }
 
-.colorCategory:first-child {
-	padding-left: 0;
+.colorPicker {
+	margin-top: 25px;
+	display: block;
+	width: 100%;
+	text-align: center;
 }
 
-.colorCategory:last-child {
-	padding-right: 0;
+.colorPickerPicker {
+	display: inline;
+	margin: 0 auto;
+}
+
+.colorPickerPicker div {
+	margin: 0 auto;
 }
 
 .buttonContainer {
@@ -75,16 +89,20 @@
 	border: 1px solid #696969;
 }
 
-.categoryButton:focus {
+.button {
+	transition: transform 0.2s linear;
+}
+
+.button:focus {
 	outline: none;
 }
 
-.categoryButton:hover {
+.button:hover {
 	cursor: pointer;
 	transform: translateY(-2px);
 }
 
-.categoryButton:active {
+.button:active {
 	transform: translateY(1px);
 }
 
@@ -97,19 +115,116 @@
 	height: 100%;
 }
 
-.colorPicker {
-	flex-grow: 1;
-}
-
-.title {
-	margin-top: 0;
-}
-
-.preTitle {
-	margin-bottom: 0;
-	font-weight: 400;
-}
-
 .clearBoth {
 	clear: both;
+}
+
+.downloadButton {
+	border: none;
+	padding: 10px 20px;
+	font-size: 1.25em;
+	background: #325998;
+	color: white;
+	border-radius: 5px;
+	margin-top: 10px;
+	width: 12.5rem;
+}
+
+.resetColorsButton {
+	border: none;
+	padding: 5px 20px;
+	font-size: 1.1em;
+	background: #9D0C1F;
+	color: white;
+	border-radius: 5px;
+	margin-top: 10px;
+	width: 12.5rem;
+}
+
+.modal {
+	position: fixed;
+	background: rgba(0, 0, 0, 0.8);
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+}
+
+.modalContainer {
+	background: white;
+	border-radius: 5px;
+	width: calc(80vw - 60px);
+	max-height: 60vh;
+	margin-left: 10vw;
+	margin-top: 10vh;
+	padding: 5px 30px;
+	color: black;
+	user-select: text;
+	overflow-y: scroll;
+}
+
+.closeModal {
+	border: none;
+	padding: 5px 20px;
+	font-size: 0.9em;
+	background: #DB2A2A;
+	color: white;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+	.headerContainer {
+		display: inline-flex;
+		flex-direction: row;
+		width: 100%;
+		margin: 0;
+	}
+
+	.headerContainer div {
+		flex: 1;
+	}
+
+	.titleContainer {
+		display: inline;
+	}
+
+	.currentEditing {
+		text-align: right;
+	}
+
+	.colorCategory {
+		flex: 1;
+	}
+
+	.colorCategory:first-child {
+		padding-left: 0;
+	}
+
+	.colorCategory:last-child {
+		padding-right: 0;
+	}
+
+	.colorPickerPicker {
+		float: right;
+	}
+
+	.mainContent {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.colorCategories {
+		width: auto;
+		display: inline-flex;
+		flex-direction: row;
+		flex-grow: 5;
+	}
+
+	.colorPicker {
+		margin-top: 0;
+		width: auto;
+		flex-grow: 1;
+		text-align: right;
+	}
 }

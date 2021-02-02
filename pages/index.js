@@ -8,7 +8,7 @@ export default function Home() {
 	return (
 		<GlobalProvider>
 			<Head>
-				<title>Chrome Theme Generator</title>
+				<title>Chrome Theme Studio</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<div className={styles.container}>
