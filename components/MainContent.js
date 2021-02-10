@@ -15,13 +15,13 @@ export default function MainContent() {
 		setInactive,
 		colors,
 		resetToDefaults,
+		downloadModal,
+		setDownloadModalVisible,
 	} = useContext(GlobalContext);
 
 	// Modal state control
 	const [welcomeModal, setWelcomeModalVisible] = useState(true);
 	const closeWelcomeModal = () => setWelcomeModalVisible(false);
-
-	const [downloadModal, setDownloadModalVisible] = useState(false);
 	const closeDownloadModal = () => setDownloadModalVisible(false);
 
 	// Toggling browser state

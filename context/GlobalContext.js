@@ -196,6 +196,8 @@ export const GlobalProvider = ({ children }) => {
 	const [inactive, setInactive] = useState(false);
 	const [incognito, setIncognito] = useState(false);
 
+	const [downloadModal, setDownloadModalVisible] = useState(false);
+
 	return (
 		<GlobalContext.Provider value={{
 			colorCategories,
@@ -205,6 +207,8 @@ export const GlobalProvider = ({ children }) => {
 			incognito,
 			setIncognito,
 			resetToDefaults,
+			downloadModal,
+			setDownloadModalVisible,
 		}}>
 			{children}
 		</GlobalContext.Provider>

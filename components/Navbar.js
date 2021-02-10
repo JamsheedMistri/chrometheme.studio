@@ -8,8 +8,11 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
 export default function Navbar() {
-	const { colors } = useContext(GlobalContext);
-	const download = () => downloadTheme(colors);
+	const { colors, setDownloadModalVisible } = useContext(GlobalContext);
+	const download = () => {
+		downloadTheme(colors);
+		setDownloadModalVisible(true);
+	}
 
 	return (
 		<AppBar position="static">
