@@ -12,9 +12,11 @@
     "archiver": "^5.2.0",
     "classnames": "^2.2.6",
     "http": "0.0.1-security",
+    "materialize-css": "^1.0.0-rc.2",
     "next": "10.0.5",
     "react": "17.0.1",
     "react-color": "^2.19.3",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-materialize": "^3.9.7"
   }
 }

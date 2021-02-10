@@ -1,0 +1,14 @@
+.modal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.8);
+}
+
+.card {
+	font-family: "Roboto";
+	background-color: #202124 !important;
+	margin: 0 15vw;
+	outline: 0;
+	padding: 10px 30px 25px;
+}

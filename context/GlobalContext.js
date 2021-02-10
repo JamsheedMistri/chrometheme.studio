@@ -193,21 +193,11 @@ export const GlobalProvider = ({ children }) => {
 		setOmniboxBackground('#e9ebec');
 	}
 
-	const [currentCategoryID, setCurrentCategoryID] = useState("toolbar");
-	const [currentCategory, setCurrentCategory] = useState(colorCategories[0]);
 	const [inactive, setInactive] = useState(false);
 	const [incognito, setIncognito] = useState(false);
 
-	// Change the current category if the ID changes
-	useEffect(() => {
-		setCurrentCategory(colorCategories.filter(category => category.id == currentCategoryID)[0]);
-	}, [currentCategoryID]);
-
 	return (
 		<GlobalContext.Provider value={{
-			currentCategory,
-			currentCategoryID,
-			setCurrentCategoryID,
 			colorCategories,
 			colors,
 			inactive,
