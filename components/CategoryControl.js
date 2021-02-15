@@ -1,6 +1,5 @@
 import styles from '../styles/CategoryControl.module.css';
 import { useState } from 'react';
-import classnames from 'classnames';
 import { ChromePicker } from 'react-color';
 import Button from '@material-ui/core/Button';
 
