@@ -1,7 +1,8 @@
-import styles from '../styles/Bookmark.module.css';
+import React from 'react';
 import { getBookmarkTextColor } from '../utils/BrowserState';
+import styles from '../styles/Bookmark.module.css';
 
-export default function Bookmark({ favicon, title }) {
+const Bookmark = React.memo(({ favicon, title }) => {
 	const bookmarkTextStyle = { color: getBookmarkTextColor() };
 
 	return (
@@ -10,4 +11,6 @@ export default function Bookmark({ favicon, title }) {
 			<span className={styles.bookmarkName} style={bookmarkTextStyle}>{title}</span>
 		</div>
 	);
-}
+});
+
+export default Bookmark;

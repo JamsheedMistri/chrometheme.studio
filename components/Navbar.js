@@ -1,5 +1,4 @@
-import styles from '../styles/Navbar.module.css';
-import { useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import { downloadTheme } from '../utils/DownloadTheme';
 import AppBar from '@material-ui/core/AppBar';
@@ -8,8 +7,9 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import styles from '../styles/Navbar.module.css';
 
-export default function Navbar() {
+const Navbar = React.memo(() => {
 	const { colors, setDownloadModalVisible, setResetModalVisible } = useContext(GlobalContext);
 
 	const [anchorEl, setAnchorEl] = useState(false);
@@ -79,4 +79,6 @@ export default function Navbar() {
 			</Toolbar>
 		</AppBar>
 	);
-}
+});
+
+export default Navbar;

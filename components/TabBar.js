@@ -1,8 +1,9 @@
+import React from 'react';
+import { getFrameColor, getBackgroundTabColor, getTabBackgroundTextColor } from '../utils/BrowserState';
 import Tab from './Tab';
 import styles from '../styles/TabBar.module.css';
-import { getFrameColor, getBackgroundTabColor, getTabBackgroundTextColor } from '../utils/BrowserState';
 
-export default function TabBar() {
+const TabBar = React.memo(() => {
 	const frameStyle = { background: getFrameColor() };
 	const dividerStyle = { borderColor: getTabBackgroundTextColor() };
 	const newTabButtonStyle = { background: getBackgroundTabColor(), fill: getTabBackgroundTextColor() };
@@ -24,4 +25,6 @@ export default function TabBar() {
 			</div>
 		</div>
 	);
-}
+});
+
+export default TabBar;

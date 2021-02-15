@@ -1,9 +1,9 @@
-import Modal from '../Modal';
-import Button from '@material-ui/core/Button';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { GlobalContext } from '../../context/GlobalContext';
+import Button from '@material-ui/core/Button';
+import Modal from '../Modal';
 
-export default function DownloadModal() {
+const DownloadModal = React.memo(() => {
 	const { downloadModal, setDownloadModalVisible } = useContext(GlobalContext);
 	const closeDownloadModal = () => setDownloadModalVisible(false);
 
@@ -37,4 +37,6 @@ export default function DownloadModal() {
 			>Close</Button>
 		</Modal>
 	);
-}
+});
+
+export default DownloadModal;

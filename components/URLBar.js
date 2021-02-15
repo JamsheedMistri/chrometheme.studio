@@ -1,7 +1,8 @@
-import styles from '../styles/URLBar.module.css';
+import React from 'react';
 import { getToolbarButtonIconColor, getOmniboxTextColor, getOmniboxBackgroundColor, isIncognito } from '../utils/BrowserState';
+import styles from '../styles/URLBar.module.css';
 
-export default function URLBar() {
+const URLBar = React.memo(() => {
 	const buttonsStyle = { fill: getToolbarButtonIconColor() };
 	const urlBarStyle = {
 		color: getOmniboxTextColor(),
@@ -53,4 +54,6 @@ export default function URLBar() {
 			</svg>
 		</div>
 	);
-}
+});
+
+export default URLBar;

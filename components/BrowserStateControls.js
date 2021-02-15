@@ -1,10 +1,10 @@
-import Toolbar from './Toolbar';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
-import styles from '../styles/BrowserStateControls.module.css';
 import Switch from '@material-ui/core/Switch';
+import Toolbar from './Toolbar';
+import styles from '../styles/BrowserStateControls.module.css';
 
-export default function BrowserStateControls() {
+const BrowserStateControls = React.memo(() => {
 	const {
 		incognito,
 		setIncognito,
@@ -28,4 +28,6 @@ export default function BrowserStateControls() {
 			</div>
 		</div>
 	);
-}
+});
+
+export default BrowserStateControls;

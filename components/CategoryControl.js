@@ -1,9 +1,9 @@
-import styles from '../styles/CategoryControl.module.css';
-import { useState } from 'react';
-import { ChromePicker } from 'react-color';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
+import { ChromePicker } from 'react-color';
+import styles from '../styles/CategoryControl.module.css';
 
-export default function CategoryControl({ category }) {
+const CategoryControl = React.memo(({ category }) => {
 	const [colorPickerVisible, setColorPickerVisible] = useState(false);
 	const toggleColorPicker = () => setColorPickerVisible(!colorPickerVisible);
 
@@ -31,4 +31,6 @@ export default function CategoryControl({ category }) {
 			</div>
 		</div>
 	);
-}
+});
+
+export default CategoryControl;

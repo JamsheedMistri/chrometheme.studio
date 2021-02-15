@@ -1,10 +1,10 @@
-import Modal from '../Modal';
-import Button from '@material-ui/core/Button';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { GlobalContext } from '../../context/GlobalContext';
+import Button from '@material-ui/core/Button';
+import Modal from '../Modal';
 import styles from '../../styles/modals/ResetModal.module.css';
 
-export default function ResetModal() {
+const ResetModal = React.memo(() => {
 	const { resetToDefaults, resetModal, setResetModalVisible } = useContext(GlobalContext);
 	const closeResetModal = () => setResetModalVisible(false);
 
@@ -26,4 +26,6 @@ export default function ResetModal() {
 			<Button onClick={closeResetModal}>cancel</Button>
 		</Modal>
 	);
-}
+});
+
+export default ResetModal;

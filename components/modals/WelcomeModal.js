@@ -1,10 +1,10 @@
-import Modal from '../Modal';
-import Button from '@material-ui/core/Button';
-import styles from '../../styles/modals/WelcomeModal.module.css';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { GlobalContext } from '../../context/GlobalContext';
+import Button from '@material-ui/core/Button';
+import Modal from '../Modal';
+import styles from '../../styles/modals/WelcomeModal.module.css';
 
-export default function WelcomeModal() {
+const WelcomeModal = React.memo(() => {
 	const { welcomeModal, setWelcomeModalVisible } = useContext(GlobalContext);
 	const closeWelcomeModal = () => setWelcomeModalVisible(false);
 
@@ -34,4 +34,6 @@ export default function WelcomeModal() {
 			</div>
 		</Modal>
 	);
-}
+});
+
+export default WelcomeModal;

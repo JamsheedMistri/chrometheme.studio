@@ -1,12 +1,13 @@
+import React from 'react';
 import TabBar from './TabBar';
 import ControlBar from './ControlBar';
 import styles from '../styles/Toolbar.module.css';
 
-export default function Toolbar() {
-	return (
-		<div className={styles.container}>
-			<TabBar />
-			<ControlBar />
-		</div>
-	);
-}
+const Toolbar = React.memo(() => (
+	<div className={styles.container}>
+		<TabBar />
+		<ControlBar />
+	</div>
+));
+
+export default Toolbar;

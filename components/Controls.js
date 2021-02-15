@@ -1,9 +1,9 @@
-import styles from '../styles/Controls.module.css';
-import { useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import CategoryControl from './CategoryControl';
+import styles from '../styles/Controls.module.css';
 
-export default function Controls() {
+const Controls = React.memo(() => {
 	const { colorCategories, colors } = useContext(GlobalContext);
 
 	const renderCategory = type => {
@@ -42,4 +42,6 @@ export default function Controls() {
 			</div>
 		</div>
 	);
-}
+});
+
+export default Controls;

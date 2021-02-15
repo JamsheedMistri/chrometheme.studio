@@ -1,7 +1,8 @@
-import styles from '../styles/Round.module.css';
+import React from 'react';
 import { getBackgroundTabColor, getToolbarColor } from '../utils/BrowserState';
+import styles from '../styles/Round.module.css';
 
-export default function Round({ active, side }) {
+const Round = React.memo(({ active, side }) => {
 	const roundColor = active ? getToolbarColor() : getBackgroundTabColor();
 	const roundLeftStyle = { borderRightColor: roundColor };
 	const roundRightStyle = { borderLeftColor: roundColor };
@@ -12,4 +13,6 @@ export default function Round({ active, side }) {
 			{side == "right" && <div className={`${styles.round} ${styles.roundRight}`} style={roundRightStyle} /> }
 		</div>
 	);
-}
+});
+
+export default Round;

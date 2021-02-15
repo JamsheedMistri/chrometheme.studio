@@ -1,9 +1,10 @@
-import styles from '../styles/ControlBar.module.css';
+import React from 'react';
+import { getToolbarColor } from '../utils/BrowserState';
 import URLBar from '../components/URLBar';
 import BookmarksBar from '../components/BookmarksBar';
-import { getToolbarColor } from '../utils/BrowserState';
+import styles from '../styles/ControlBar.module.css';
 
-export default function ControlBar() {
+const ControlBar = React.memo(() => {
 	const controlBarStyle = { background: getToolbarColor() };
 
 	return (
@@ -12,4 +13,6 @@ export default function ControlBar() {
 			<BookmarksBar />
 		</div>
 	);
-}
+});
+
+export default ControlBar;
