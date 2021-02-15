@@ -1,0 +1,29 @@
+.container {
+	font-family: "Roboto";
+	width: 100%;
+}
+
+.colorCategory {
+	padding: 0 25px;
+	flex: none;
+	width: calc(100% - 50px);
+}
+
+@media only screen and (min-width: 768px) {
+	.container {
+		display: inline-flex;
+		flex-direction: row;
+	}
+
+	.colorCategory {
+		flex: 1;
+	}
+
+	.colorCategory:first-child {
+		padding-left: 0;
+	}
+
+	.colorCategory:last-child {
+		padding-right: 0;
+	}
+}

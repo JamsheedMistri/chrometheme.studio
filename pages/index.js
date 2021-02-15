@@ -1,9 +1,12 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { GlobalProvider } from '../context/GlobalContext';
+import BrowserStateControls from '../components/BrowserStateControls';
 import BrowserPreview from '../components/BrowserPreview';
-import MainContent from '../components/MainContent';
+import Controls from '../components/Controls';
 import Navbar from '../components/Navbar';
+import WelcomeModal from '../components/modals/WelcomeModal';
+import DownloadModal from '../components/modals/DownloadModal';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { lightBlue, red } from '@material-ui/core/colors';
@@ -28,14 +31,28 @@ export default function Home() {
 					<title>Chrome Theme Studio</title>
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
+
 				<Navbar />
+
 				<div className={styles.container}>
-					<MainContent />
-					<div className={styles.browserPreview}>
+					<div className={styles.controls}>
+						<Controls />
+					</div>
+					<div className={styles.browser}>
+						<BrowserStateControls />
 						<BrowserPreview />
 					</div>
 				</div>
+
+				<DownloadModal />
+				<WelcomeModal />
 			</ThemeProvider>
+			<style jsx global>{`
+				body {
+					background: #161717;
+				}
+			`}</style>
 		</GlobalProvider>
+
 	);
 }

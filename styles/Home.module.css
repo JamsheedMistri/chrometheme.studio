@@ -1,16 +1,24 @@
 .container {
-	background: #161717;
+	position: absolute;
+	top: 64px;
+	left: 2vw;
+	right: 2vw;
+	bottom: 0;
+	width: 96vw;
+
+	display: grid;
+	grid-template-rows: 5fr 2fr;
+	grid-gap: 2vh;
+
+	overflow: hidden;
 	color: white;
-	width: 100vw;
-	height: 100vh;
 	user-select: none;
+}
+
+.controls {
 	overflow: scroll;
 }
 
-.browserPreview {
-	width: 96vw;
-	height: 100vh;
-	margin: 0 2vw;
-	position: fixed;
-	bottom: -83vh;
+.browser {
+	overflow: hidden;
 }

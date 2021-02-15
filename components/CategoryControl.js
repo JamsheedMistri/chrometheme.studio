@@ -11,33 +11,27 @@ export default function CategoryControl({ category }) {
 	return (
 		<div className={styles.container}>
 			<div className={styles.group}>
-				<Button
-					variant="contained"
-					color="primary"
-					onClick={toggleColorPicker}
-					className={styles.button}
-					disableElevation
-				>
-					{category.name}
-				</Button>
-				<Button
-					variant="contained"
-					onClick={toggleColorPicker}
-					style={{ backgroundColor: category.color }}
-					className={styles.colorPreview}
-					disableElevation
-				/>
-			</div>
-			{colorPickerVisible &&
-				<div className={styles.popover}>
-					<div className={styles.cover} onClick={toggleColorPicker} />
-					<SketchPicker
-						color={category.color}
-						onChange={ color => category.update(color.hex) }
-						disableAlpha={true}
+				<div className={styles.label}>{category.name.toUpperCase()}</div>
+				<div>
+					<Button
+						variant="contained"
+						onClick={toggleColorPicker}
+						style={{ backgroundColor: category.color }}
+						className={styles.colorPreview}
+						disableElevation
 					/>
+					{colorPickerVisible &&
+					<div className={styles.popover}>
+						<div className={styles.cover} onClick={toggleColorPicker} />
+						<SketchPicker
+							color={category.color}
+							onChange={ color => category.update(color.hex) }
+							disableAlpha={true}
+						/>
+					</div>
+					}
 				</div>
-			}
+			</div>
 		</div>
 	);
 }

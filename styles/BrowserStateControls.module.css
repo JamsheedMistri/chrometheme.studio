@@ -1,0 +1,7 @@
+.container div {
+	display: inline-block;
+}
+
+.container div:first-child {
+	margin-right: 15px;
+}
