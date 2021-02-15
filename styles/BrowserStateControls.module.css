@@ -1,7 +1,17 @@
+.container {
+	text-align: center;
+}
+
 .container div {
 	display: inline-block;
 }
 
 .container div:first-child {
 	margin-right: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+	.container {
+		text-align: left;
+	}
 }

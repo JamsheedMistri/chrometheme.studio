@@ -2,17 +2,12 @@
 	text-align: center;
 }
 
-.welcomeContainer {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-gap: 1rem 1rem;
-}
-
 .welcomeContainer article {
 	border: 1px solid #696969;
 	border-radius: 5px;
-	padding: 15px 75px;
+	padding: 15px 15px;
 	text-align: center;
+	margin-bottom: 10px;
 }
 
 .stepIcon {
@@ -34,4 +29,17 @@
 .getStartedButton {
 	text-align: center;
 	padding-top: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+	.welcomeContainer {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 1rem 1rem;
+	}
+
+	.welcomeContainer article {
+		padding: 15px 30px;
+		margin-bottom: 0;
+	}
 }

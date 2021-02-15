@@ -8,7 +8,18 @@
 .card {
 	font-family: "Roboto";
 	background-color: #202124 !important;
-	margin: 0 15vw;
+	margin: 0 5vw;
+	max-height: 85vh;
 	outline: 0;
 	padding: 10px 30px 25px;
+}
+
+.modal :global(.MuiCard-root) {
+	overflow-y: scroll !important;
+}
+
+@media only screen and (min-width: 768px) {
+	.card {
+		margin: 0 20vw;
+	}
 }

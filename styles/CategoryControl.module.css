@@ -1,4 +1,4 @@
-.group {
+.container {
 	display: flex;
 	flex-direction: row;
 	margin-bottom: 10px;
@@ -22,7 +22,7 @@
 
 .popover {
 	position: absolute;
-	z-index: 2;
+	z-index: 250;
 	margin-left: -175px;
 }
 
@@ -32,10 +32,4 @@
 	right: 0;
 	bottom: 0;
 	left: 0;
-}
-
-@media only screen and (min-width: 768px) {
-	.popover {
-		margin-left: 10px;
-	}
 }

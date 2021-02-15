@@ -5,3 +5,21 @@
 .resetButton {
 	margin-right: 20px !important;
 }
+
+.mobileMenu svg {
+	fill: white;
+}
+
+.desktopMenu {
+	display: none;
+}
+
+@media only screen and (min-width: 768px) {
+	.mobileMenu {
+		display: none;
+	}
+
+	.desktopMenu {
+		display: block;
+	}
+}

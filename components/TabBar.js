@@ -10,7 +10,7 @@ export default function TabBar() {
 
 	return (
 		<div className={styles.container} style={frameStyle}>
-			<Tab position="first" title="Google" favicon="https://www.google.com/favicon.ico" />
+			<Tab position="first" title="Chromium" favicon="https://www.chromium.org/_/rsrc/1438879449147/config/customLogo.gif" />
 			<Tab active title="Jamsheed Mistri" favicon="https://jmistri.com/favicon.ico" />
 			<Tab position="last" title="Hacker News" favicon="https://news.ycombinator.com/favicon.ico" />
 			{ shouldShowDivider && <div className={styles.newTabDivider} /> }

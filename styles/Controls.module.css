@@ -1,22 +1,35 @@
 .container {
+	padding: 0 25px;
+	padding-bottom: calc(40vh - 64px);
+}
+
+.colorCategories {
 	font-family: "Roboto";
 	width: 100%;
 }
 
 .colorCategory {
-	padding: 0 25px;
 	flex: none;
-	width: calc(100% - 50px);
+	width: 100%;
+}
+
+.instructions {
+	margin-bottom: 0;
 }
 
 @media only screen and (min-width: 768px) {
 	.container {
+		padding: 0;
+	}
+
+	.colorCategories {
 		display: inline-flex;
 		flex-direction: row;
 	}
 
 	.colorCategory {
 		flex: 1;
+		padding: 0 25px;
 	}
 
 	.colorCategory:first-child {

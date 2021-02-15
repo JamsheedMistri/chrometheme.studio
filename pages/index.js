@@ -7,6 +7,7 @@ import Controls from '../components/Controls';
 import Navbar from '../components/Navbar';
 import WelcomeModal from '../components/modals/WelcomeModal';
 import DownloadModal from '../components/modals/DownloadModal';
+import ResetModal from '../components/modals/ResetModal';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { lightBlue, red } from '@material-ui/core/colors';
@@ -46,6 +47,7 @@ export default function Home() {
 
 				<DownloadModal />
 				<WelcomeModal />
+				<ResetModal />
 			</ThemeProvider>
 			<style jsx global>{`
 				body {

@@ -6,11 +6,6 @@
 	bottom: 0;
 	width: 96vw;
 
-	display: grid;
-	grid-template-rows: 5fr 2fr;
-	grid-gap: 2vh;
-
-	overflow: hidden;
 	color: white;
 	user-select: none;
 }
@@ -20,5 +15,9 @@
 }
 
 .browser {
-	overflow: hidden;
+	background: #161717;
+	width: 96vw;
+	height: 100vh;
+	position: fixed;
+	bottom: -75vh;
 }

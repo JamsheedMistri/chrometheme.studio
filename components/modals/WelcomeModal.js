@@ -14,7 +14,7 @@ export default function WelcomeModal() {
 			<div className={styles.welcomeContainer}>
 				<article>
 					<div className={styles.stepIcon}>1</div>
-					Adjust different parts of the theme using the labeled buttons
+					Adjust different parts of the theme using the square buttons next to each label
 				</article>
 				<article>
 					<div className={styles.stepIcon}>2</div>
