@@ -10,7 +10,7 @@ export default function DownloadModal() {
 	return (
 		<Modal open={downloadModal} onClose={closeDownloadModal}>
 			<h1>Theme Installation Instructions</h1>
-			<p>Follow these instructions in order to start using your new theme. If you're having trouble following these instructions, you can find a video tutorial here.</p>
+			<p>Follow these instructions in order to start using your new theme.</p>
 			<ol>
 				<li>
 					<p>Click the file at the bottom of your screen to un-zip it.</p>
