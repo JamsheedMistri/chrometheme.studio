@@ -72,7 +72,7 @@ export default function handler(req, res) {
 	const themeJSON = generateThemeJSON(req.body);
 	const zip = archiver('zip');
 	zip.pipe(res);
-	zip.append(JSON.stringify(themeJSON), {
+	zip.append(JSON.stringify(themeJSON, null, "\t"), {
 		name: 'chrome-theme/manifest.json'
 	}).finalize();
 }
