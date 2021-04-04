@@ -5,81 +5,81 @@ export function getFrameColor() {
 	const { colors, inactive, incognito } = useContext(GlobalContext);
 	if (inactive && incognito) {
 		// inactive and incognito
-		return colors.frameIncognitoInactive;
+		return colors['frame_incognito_inactive'];
 	} else if (!inactive && incognito) {
 		// active and incognito
-		return colors.frameIncognito;
+		return colors['frame_incognito'];
 	} else if (inactive && !incognito) {
 		// inactive regular
-		return colors.frameInactive;
+		return colors['frame_inactive'];
 	} else if (!inactive && !incognito) {
 		// active regular
-		return colors.frame;
+		return colors['frame'];
 	}
 }
 
 export function getToolbarColor() {
 	const { colors } = useContext(GlobalContext);
-	return colors.toolbar;
+	return colors['toolbar'];
 }
 
 export function getBackgroundTabColor() {
 	const { colors, inactive, incognito } = useContext(GlobalContext);
 	if (inactive && incognito) {
 		// inactive and incognito
-		return colors.backgroundTabIncognitoInactive;
+		return colors['background_tab_incognito_inactive'];
 	} else if (!inactive && incognito) {
 		// active and incognito
-		return colors.backgroundTabIncognito;
+		return colors['background_tab_incognito'];
 	} else if (inactive && !incognito) {
 		// inactive regular
-		return colors.backgroundTabInactive;
+		return colors['background_tab_inactive'];
 	} else if (!inactive && !incognito) {
 		// active regular
-		return colors.backgroundTab;
+		return colors['background_tab'];
 	}
 }
 
 export function getBookmarkTextColor() {
 	const { colors } = useContext(GlobalContext);
-	return colors.bookmarkText;
+	return colors['bookmark_text'];
 }
 
 export function getTabTextColor() {
 	const { colors } = useContext(GlobalContext);
-	return colors.tabText;
+	return colors['tab_text'];
 }
 
 export function getTabBackgroundTextColor() {
 	const { colors, inactive, incognito } = useContext(GlobalContext);
 	if (inactive && incognito) {
 		// inactive and incognito
-		return colors.tabBackgroundTextIncognitoInactive;
+		return colors['tab_background_text_incognito_inactive'];
 	} else if (!inactive && incognito) {
 		// active and incognito
-		return colors.tabBackgroundTextIncognito;
+		return colors['tab_background_text_incognito'];
 	} else if (inactive && !incognito) {
 		// inactive regular
-		return colors.tabBackgroundTextInactive;
+		return colors['tab_background_text_inactive'];
 	} else if (!inactive && !incognito) {
 		// active regular
-		return colors.tabBackgroundText;
+		return colors['tab_background_text'];
 	}
 }
 
 export function getToolbarButtonIconColor() {
 	const { colors } = useContext(GlobalContext);
-	return colors.toolbarButtonIcon;
+	return colors['toolbar_button_icon'];
 }
 
 export function getOmniboxTextColor() {
 	const { colors } = useContext(GlobalContext);
-	return colors.omniboxText;
+	return colors['omnibox_text'];
 }
 
 export function getOmniboxBackgroundColor() {
 	const { colors } = useContext(GlobalContext);
-	return colors.omniboxBackground;
+	return colors['omnibox_background'];
 }
 
 export function isIncognito() {

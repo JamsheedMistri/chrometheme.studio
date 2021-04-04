@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Button from '@material-ui/core/Button';
 import { ChromePicker } from 'react-color';
-import styles from '../styles/CategoryControl.module.css';
+import styles from '../styles/ColorControl.module.css';
+import { GlobalContext } from '../context/GlobalContext';
 
-const CategoryControl = React.memo(({ category }) => {
+const ColorControl = React.memo(({ id, color, data }) => {
 	const [colorPickerVisible, setColorPickerVisible] = useState(false);
 	const toggleColorPicker = () => setColorPickerVisible(!colorPickerVisible);
+	const { updateColor } = useContext(GlobalContext);
 
 	return (
 		<div className={styles.container}>
-			<div className={styles.label}>{category.name.toUpperCase()}</div>
+			<div className={styles.label}>{data.name.toUpperCase()}</div>
 			<div className={styles.colorPreviewContainer}>
 				<Button
 					variant="contained"
 					onClick={toggleColorPicker}
-					style={{ backgroundColor: category.color }}
+					style={{ backgroundColor: color }}
 					className={styles.colorPreview}
 					disableElevation
 				/>
@@ -22,8 +24,8 @@ const CategoryControl = React.memo(({ category }) => {
 					<div className={styles.popover}>
 						<div className={styles.cover} onClick={toggleColorPicker} />
 						<ChromePicker
-							color={category.color}
-							onChange={ color => category.update(color.hex) }
+							color={color}
+							onChange={ color => updateColor(id, color.hex) }
 							disableAlpha={true}
 						/>
 					</div>
@@ -33,4 +35,4 @@ const CategoryControl = React.memo(({ category }) => {
 	);
 });
 
-export default CategoryControl;
+export default ColorControl;

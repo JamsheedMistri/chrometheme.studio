@@ -4,11 +4,11 @@ import Button from '@material-ui/core/Button';
 import Modal from '../Modal';
 
 const DownloadModal = React.memo(() => {
-	const { downloadModal, setDownloadModalVisible } = useContext(GlobalContext);
-	const closeDownloadModal = () => setDownloadModalVisible(false);
+	const { modals, updateModal } = useContext(GlobalContext);
+	const closeDownloadModal = () => updateModal('download', false);
 
 	return (
-		<Modal open={downloadModal} onClose={closeDownloadModal}>
+		<Modal open={modals.download} onClose={closeDownloadModal}>
 			<h1>Theme Installation Instructions</h1>
 			<p>Follow these instructions in order to start using your new theme.</p>
 			<ol>

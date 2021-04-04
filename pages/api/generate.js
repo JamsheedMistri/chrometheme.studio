@@ -1,34 +1,12 @@
 import http from 'http';
 import archiver from 'archiver';
 
-const colorMappings = {
-	"frame": "frame",
-	"frame_inactive": "frameInactive",
-	"frame_incognito": "frameIncognito",
-	"frame_incognito_inactive": "frameIncognitoInactive",
-	"background_tab": "backgroundTab",
-	"background_tab_inactive": "backgroundTabInactive",
-	"background_tab_incognito": "backgroundTabIncognito",
-	"background_tab_incognito_inactive": "backgroundTabIncognitoInactive",
-	"bookmark_text": "bookmarkText",
-	"tab_background_text": "tabBackgroundText",
-	"tab_background_text_inactive": "tabBackgroundTextInactive",
-	"tab_background_text_incognito": "tabBackgroundTextIncognito",
-	"tab_background_text_incognito_inactive": "tabBackgroundTextIncognitoInactive",
-	"tab_text": "tabText",
-	"toolbar": "toolbar",
-	"toolbar_button_icon": "toolbarButtonIcon",
-	"omnibox_text": "omniboxText",
-	"omnibox_background": "omniboxBackground",
-};
-
 const generateThemeJSON = colors => {
 	let themeColorsJSON = {};
-	for (const jsonKey in colorMappings) {
-		const colorsKey = colorMappings[jsonKey];
+	for (const key in colors) {
 		themeColorsJSON = {
 			...themeColorsJSON,
-			[jsonKey]: hexToRGB(colors[colorsKey]),
+			[key]: hexToRGB(colors[key]),
 		};
 	}
 

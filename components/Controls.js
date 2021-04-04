@@ -1,18 +1,21 @@
 import React, { useState, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
-import CategoryControl from './CategoryControl';
+import ColorControl from './ColorControl';
 import styles from '../styles/Controls.module.css';
 
 const Controls = React.memo(() => {
-	const { colorCategories, colors } = useContext(GlobalContext);
+	const { colors, colorData } = useContext(GlobalContext);
+	const orderedColorKeys = [ 'frame', 'frame_inactive', 'frame_incognito', 'frame_incognito_inactive', 'background_tab', 'background_tab_inactive', 'background_tab_incognito', 'background_tab_incognito_inactive', 'tab_background_text', 'tab_background_text_inactive', 'tab_background_text_incognito', 'tab_background_text_incognito_inactive', 'toolbar', 'toolbar_button_icon', 'omnibox_text', 'omnibox_background', 'tab_text', 'bookmark_text' ];
 
 	const renderCategory = type => {
-		return colorCategories
-			.filter(category => category.type == type)
-			.map(category => (
-				<CategoryControl
-					key={category.id}
-					category={category}
+		return orderedColorKeys
+			.filter(color => colorData[color].type == type)
+			.map(color => (
+				<ColorControl
+					key={color}
+					id={color}
+					color={colors[color]}
+					data={colorData[color]}
 				/>
 			));
 	}
@@ -37,7 +40,7 @@ const Controls = React.memo(() => {
 					{renderCategory("incognito")}
 
 					<h2>Inactive & Incognito</h2>
-					{renderCategory("inactive_incognito")}
+					{renderCategory("incognito_inactive")}
 				</div>
 			</div>
 		</div>

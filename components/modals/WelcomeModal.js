@@ -5,11 +5,11 @@ import Modal from '../Modal';
 import styles from '../../styles/modals/WelcomeModal.module.css';
 
 const WelcomeModal = React.memo(() => {
-	const { welcomeModal, setWelcomeModalVisible } = useContext(GlobalContext);
-	const closeWelcomeModal = () => setWelcomeModalVisible(false);
+	const { modals, updateModal } = useContext(GlobalContext);
+	const closeWelcomeModal = () => updateModal('welcome', false);
 
 	return (
-		<Modal open={welcomeModal} onClose={closeWelcomeModal}>
+		<Modal open={modals.welcome} onClose={closeWelcomeModal}>
 			<h1 className={styles.welcomeHeader}>Welcome to Chrome Theme Studio</h1>
 			<div className={styles.welcomeContainer}>
 				<article>

@@ -1,220 +1,153 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useReducer } from 'react';
+import AppReducer from './AppReducer';
 
-export const GlobalContext = createContext();
+const initialState = {
+	colors: {
+		'frame': '#dee1e6',
+		'frame_inactive': '#e7eaed',
+		'frame_incognito': '#202124',
+		'frame_incognito_inactive': '#3c4043',
+		'background_tab': '#dee1e6',
+		'background_tab_inactive': '#e7eaed',
+		'background_tab_incognito': '#202124',
+		'background_tab_incognito_inactive': '#3c4043',
+		'bookmark_text': '#3a3e41',
+		'tab_background_text': '#3c4043',
+		'tab_background_text_inactive': '#666a6d',
+		'tab_background_text_incognito': '#bdc1c6',
+		'tab_background_text_incognito_inactive': '#a7abae',
+		'tab_text': '#3c4043',
+		'toolbar': '#ffffff',
+		'toolbar_button_icon': '#626365',
+		'omnibox_text': '#202124',
+		'omnibox_background': '#e9ebec',
+	},
+	modals: {
+		welcome: true,
+		reset: false,
+		download: false,
+	}
+}
+
+const colorData = {
+	'frame': {
+		name: 'Frame',
+		type: 'active',
+	},
+	'frame_inactive': {
+		name: 'Frame',
+		type: 'inactive',
+	},
+	'frame_incognito': {
+		name: 'Frame',
+		type: 'incognito',
+	},
+	'frame_incognito_inactive': {
+		name: 'Frame',
+		type: 'incognito_inactive',
+	},
+	'background_tab': {
+		name: 'Background Tab',
+		type: 'active',
+	},
+	'background_tab_inactive': {
+		name: 'Background Tab',
+		type: 'inactive',
+	},
+	'background_tab_incognito': {
+		name: 'Background Tab',
+		type: 'incognito',
+	},
+	'background_tab_incognito_inactive': {
+		name: 'Background Tab',
+		type: 'incognito_inactive',
+	},
+	'bookmark_text': {
+		name: 'Bookmark Text',
+		type: 'universal',
+	},
+	'tab_background_text': {
+		name: 'Background Tab Text',
+		type: 'active',
+	},
+	'tab_background_text_inactive': {
+		name: 'Background Tab Text',
+		type: 'inactive',
+	},
+	'tab_background_text_incognito': {
+		name: 'Background Tab Text',
+		type: 'incognito',
+	},
+	'tab_background_text_incognito_inactive': {
+		name: 'Background Tab Text',
+		type: 'incognito_inactive',
+	},
+	'tab_text': {
+		name: 'Tab Text',
+		type: 'universal',
+	},
+	'toolbar': {
+		name: 'Toolbar',
+		type: 'universal',
+	},
+	'toolbar_button_icon': {
+		name: 'Toolbar Button Icon',
+		type: 'universal',
+	},
+	'omnibox_text': {
+		name: 'URL Bar Text',
+		type: 'universal',
+	},
+	'omnibox_background': {
+		name: 'URL Bar Background',
+		type: 'universal',
+	},
+}
+
+export const GlobalContext = createContext(initialState);
 
 export const GlobalProvider = ({ children }) => {
-	const [frame, setFrame] = useState('#dee1e6');
-	const [frameInactive, setFrameInactive] = useState('#e7eaed');
-	const [frameIncognito, setFrameIncognito] = useState('#202124');
-	const [frameIncognitoInactive, setFrameIncognitoInactive] = useState('#3c4043');
-	const [backgroundTab, setBackgroundTab] = useState('#dee1e6');
-	const [backgroundTabInactive, setBackgroundTabInactive] = useState('#e7eaed');
-	const [backgroundTabIncognito, setBackgroundTabIncognito] = useState('#202124');
-	const [backgroundTabIncognitoInactive, setBackgroundTabIncognitoInactive] = useState('#3c4043');
-	const [bookmarkText, setBookmarkText] = useState('#3a3e41');
-	const [tabBackgroundText, setTabBackgroundText] = useState('#3c4043');
-	const [tabBackgroundTextInactive, setTabBackgroundTextInactive] = useState('#666a6d');
-	const [tabBackgroundTextIncognito, setTabBackgroundTextIncognito] = useState('#bdc1c6');
-	const [tabBackgroundTextIncognitoInactive, setTabBackgroundTextIncognitoInactive] = useState('#a7abae');
-	const [tabText, setTabText] = useState('#3c4043');
-	const [toolbar, setToolbar] = useState('#ffffff');
-	const [toolbarButtonIcon, setToolbarButtonIcon] = useState('#626365');
-	const [omniboxText, setOmniboxText] = useState('#202124');
-	const [omniboxBackground, setOmniboxBackground] = useState('#e9ebec');
+	const [state, dispatch] = useReducer(AppReducer, initialState);
 
-	const colors = {
-		frame,
-		frameInactive,
-		frameIncognito,
-		frameIncognitoInactive,
-		backgroundTab,
-		backgroundTabInactive,
-		backgroundTabIncognito,
-		backgroundTabIncognitoInactive,
-		bookmarkText,
-		tabBackgroundText,
-		tabBackgroundTextInactive,
-		tabBackgroundTextIncognito,
-		tabBackgroundTextIncognitoInactive,
-		tabText,
-		toolbar,
-		toolbarButtonIcon,
-		omniboxText,
-		omniboxBackground,
-	};
-	
-	const colorCategories = [
-		{
-			id: "frame_active",
-			name: "Frame",
-			color: frame,
-			update: setFrame,
-			type: "active",
-		},
-		{
-			id: "frame_inactive",
-			name: "Frame",
-			color: frameInactive,
-			update: setFrameInactive,
-			type: "inactive",
-		},
-		{
-			id: "frame_incognito",
-			name: "Frame",
-			color: frameIncognito,
-			update: setFrameIncognito,
-			type: "incognito",
-		},
-		{
-			id: "frame_incognito_inactive",
-			name: "Frame",
-			color: frameIncognitoInactive,
-			update: setFrameIncognitoInactive,
-			type: "inactive_incognito",
-		},
-		{
-			id: "background_tab_active",
-			name: "Background Tab",
-			color: backgroundTab,
-			update: setBackgroundTab,
-			type: "active",
-		},
-		{
-			id: "background_tab_inactive",
-			name: "Background Tab",
-			color: backgroundTabInactive,
-			update: setBackgroundTabInactive,
-			type: "inactive",
-		},
-		{
-			id: "background_tab_incognito",
-			name: "Background Tab",
-			color: backgroundTabIncognito,
-			update: setBackgroundTabIncognito,
-			type: "incognito",
-		},
-		{
-			id: "background_tab_inactive_incognito",
-			name: "Background Tab",
-			color: backgroundTabIncognitoInactive,
-			update: setBackgroundTabIncognitoInactive,
-			type: "inactive_incognito",
-		},
-		{
-			id: "background_tab_text_active",
-			name: "Background Tab Text",
-			color: tabBackgroundText,
-			update: setTabBackgroundText,
-			type: "active",
-		},
-		{
-			id: "background_tab_text_inactive",
-			name: "Background Tab Text",
-			color: tabBackgroundTextInactive,
-			update: setTabBackgroundTextInactive,
-			type: "inactive",
-		},
-		{
-			id: "background_tab_text_incognito",
-			name: "Background Tab Text",
-			color: tabBackgroundTextIncognito,
-			update: setTabBackgroundTextIncognito,
-			type: "incognito",
-		},
-		{
-			id: "background_tab_text_inactive_incognito",
-			name: "Background Tab Text",
-			color: tabBackgroundTextIncognitoInactive,
-			update: setTabBackgroundTextIncognitoInactive,
-			type: "inactive_incognito",
-		},
-		{
-			id: "toolbar",
-			name: "Toolbar",
-			color: toolbar,
-			update: setToolbar,
-			type: "universal",
-		},
-		{
-			id: "toolbar_button_icon",
-			name: "Toolbar Button Icon",
-			color: toolbarButtonIcon,
-			update: setToolbarButtonIcon,
-			type: "universal",
-		},
-		{
-			id: "omnibox_text",
-			name: "URL Bar Text",
-			color: omniboxText,
-			update: setOmniboxText,
-			type: "universal",
-		},
-		{
-			id: "omnibox_background",
-			name: "URL Bar Background",
-			color: omniboxBackground,
-			update: setOmniboxBackground,
-			type: "universal",
-		},
-		{
-			id: "tab_text",
-			name: "Tab Text",
-			color: tabText,
-			update: setTabText,
-			type: "universal",
-		},
-		{
-			id: "bookmark_text",
-			name: "Bookmark Text",
-			color: bookmarkText,
-			update: setBookmarkText,
-			type: "universal",
-		},
-	];
+	// Actions
+	const updateColor = (id, newColor) => {
+		dispatch({
+			type: 'UPDATE_COLOR',
+			id,
+			newColor,
+		});
+	}
 
 	const resetToDefaults = () => {
-		setFrame('#dee1e6');
-		setFrameInactive('#e7eaed');
-		setFrameIncognito('#202124');
-		setFrameIncognitoInactive('#3c4043');
-		setBackgroundTab('#dee1e6');
-		setBackgroundTabInactive('#e7eaed');
-		setBackgroundTabIncognito('#202124');
-		setBackgroundTabIncognitoInactive('#3c4043');
-		setBookmarkText('#3a3e41');
-		setTabBackgroundText('#3c4043');
-		setTabBackgroundTextInactive('#666a6d');
-		setTabBackgroundTextIncognito('#bdc1c6');
-		setTabBackgroundTextIncognitoInactive('#a7abae');
-		setTabText('#3c4043');
-		setToolbar('#ffffff');
-		setToolbarButtonIcon('#626365');
-		setOmniboxText('#202124');
-		setOmniboxBackground('#e9ebec');
+		dispatch({
+			type: 'RESET_TO_DEFAULTS',
+			initialState,
+		});
+	}
+
+	const updateModal = (id, newValue) => {
+		dispatch({
+			type: 'UPDATE_MODAL',
+			id,
+			newValue,
+		});
 	}
 
 	const [inactive, setInactive] = useState(false);
 	const [incognito, setIncognito] = useState(false);
 
-	const [downloadModal, setDownloadModalVisible] = useState(false);
-	const [welcomeModal, setWelcomeModalVisible] = useState(true);
-	const [resetModal, setResetModalVisible] = useState(false);
-
 	return (
 		<GlobalContext.Provider value={{
-			colorCategories,
-			colors,
+			colors: state.colors,
+			modals: state.modals,
+			colorData,
+			updateColor,
+			resetToDefaults,
+			updateModal,
 			inactive,
 			setInactive,
 			incognito,
 			setIncognito,
-			resetToDefaults,
-			downloadModal,
-			setDownloadModalVisible,
-			welcomeModal,
-			setWelcomeModalVisible,
-			resetModal,
-			setResetModalVisible,
 		}}>
 			{children}
 		</GlobalContext.Provider>

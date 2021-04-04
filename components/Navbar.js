@@ -10,7 +10,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import styles from '../styles/Navbar.module.css';
 
 const Navbar = React.memo(() => {
-	const { colors, setDownloadModalVisible, setResetModalVisible } = useContext(GlobalContext);
+	const { colors, updateModal } = useContext(GlobalContext);
 
 	const [anchorEl, setAnchorEl] = useState(false);
 	const menuOpen = Boolean(anchorEl);
@@ -28,13 +28,13 @@ const Navbar = React.memo(() => {
 	};
 
 	const download = () => {
+		updateModal('download', true);
 		downloadTheme(colors);
-		setDownloadModalVisible(true);
 		handleMenuClose();
 	}
 
-	const reset = () => {
-		setResetModalVisible(true);
+	const showResetModal = () => {
+		updateModal('reset', true);
 		handleMenuClose();
 	}
 
@@ -67,13 +67,13 @@ const Navbar = React.memo(() => {
 						open={menuOpen}
 						onClose={handleMenuClose}
 					>
-						<MenuItem onClick={reset}>Reset Colors</MenuItem>
+						<MenuItem onClick={showResetModal}>Reset Colors</MenuItem>
 						<MenuItem onClick={download}>Download Theme</MenuItem>
 					</Menu>
 				</div>
 
 				<div className={styles.desktopMenu}>
-					<Button className={styles.resetButton} onClick={reset}>Reset Colors</Button>
+					<Button className={styles.resetButton} onClick={showResetModal}>Reset Colors</Button>
 					<Button variant="contained" onClick={download}>Download Theme</Button>
 				</div>
 			</Toolbar>
