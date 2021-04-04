@@ -31,6 +31,8 @@ export default function Home() {
 				<Head>
 					<title>Chrome Theme Studio</title>
 					<link rel="icon" href="/favicon.ico" />
+					<meta name="description" content="Create your own custom browser theme for Chromium-based browsers, including Google Chrome and Microsoft Edge, for free." />
+					<meta name="author" content="Jamsheed Mistri" />
 				</Head>
 
 				<Navbar />
