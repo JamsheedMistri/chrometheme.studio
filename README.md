@@ -1,4 +1,6 @@
 # Chrome Theme Studio ([chrometheme.studio](https://chrometheme.studio))
+[![Chrome Theme Studio - Easily create a theme for most Chromium-based browsers | Product Hunt](https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=290669&theme=light&period=daily)](https://www.producthunt.com/posts/chrome-theme-studio?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-chrome-theme-studio)
+
 ## Usage
 If you'd like to try it out, go to [chrometheme.studio](https://chrometheme.studio) to see a live demo.
 

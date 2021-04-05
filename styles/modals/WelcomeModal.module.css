@@ -4,7 +4,7 @@
 
 .welcomeContainer article {
 	border: 1px solid #696969;
-	border-radius: 5px;
+	border-radius: 10px;
 	padding: 15px 15px;
 	text-align: center;
 	margin-bottom: 10px;
@@ -29,6 +29,12 @@
 .getStartedButton {
 	text-align: center;
 	padding-top: 1rem;
+}
+
+.productHunt {
+	text-align: center;
+	display: block;
+	margin-bottom: 1rem;
 }
 
 @media only screen and (min-width: 768px) {

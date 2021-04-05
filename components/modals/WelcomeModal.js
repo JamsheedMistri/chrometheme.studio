@@ -11,6 +11,9 @@ const WelcomeModal = React.memo(() => {
 	return (
 		<Modal open={modals.welcome} onClose={closeWelcomeModal}>
 			<h1 className={styles.welcomeHeader}>Welcome to Chrome Theme Studio</h1>
+			<a href="https://www.producthunt.com/posts/chrome-theme-studio?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-chrome-theme-studio" target="_blank" className={styles.productHunt}>
+				<img src="/producthunt.svg" alt="Chrome Theme Studio - Easily create a theme for most Chromium-based browsers | Product Hunt" />
+			</a>
 			<div className={styles.welcomeContainer}>
 				<article>
 					<div className={styles.stepIcon}>1</div>
