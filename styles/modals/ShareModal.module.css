@@ -1,0 +1,23 @@
+.copyRow {
+	display: grid;
+	grid-template-columns: 80% 20%;
+	margin-bottom: 20px;
+}
+
+.copyRow :global(.MuiButton-root) {
+	border-top-left-radius: 0 !important;
+	border-bottom-left-radius: 0 !important;
+}
+
+.copyText {
+	font-family: "Roboto";
+	border: 0;
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	padding-left: 15px;
+	font-size: 1em;
+}
+
+.copyText:focus {
+	outline: none;
+}

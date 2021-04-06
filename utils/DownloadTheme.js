@@ -19,3 +19,17 @@ export function downloadTheme(colors) {
 			link.parentNode.removeChild(link);
 		})
 }
+
+export function addThemeToDatabase(colors, callback) {
+	fetch('/api/themes/new', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(colors),
+	})
+		.then(response => response.json())
+		.then(json => {
+			if (callback) callback(json);
+		})
+}

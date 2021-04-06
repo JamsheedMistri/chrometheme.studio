@@ -13,6 +13,11 @@ const reducer = (state, action) => {
 				...state,
 				colors: action.initialState.colors
 			}
+		case 'IMPORT_COLORS':
+			return {
+				...state,
+				colors: action.colors
+			}
 		case 'UPDATE_MODAL':
 			return {
 				...state,

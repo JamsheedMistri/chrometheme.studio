@@ -1,0 +1,34 @@
+.container {
+	margin: 2rem 3rem;
+	color: white;
+}
+
+.whatIs {
+	display: none;
+}
+
+@media only screen and (min-width: 768px) {
+	.container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 2rem;
+	}
+
+	.whatIs {
+		display: block;
+	}
+}
+
+.container p {
+	line-height: 1.4rem;
+}
+
+.browser {
+	transition: bottom 0.2s linear;
+	background: #161717;
+	width: 96vw;
+	height: 100vh;
+	position: fixed;
+	bottom: -100vh;
+	left: 2vw;
+}

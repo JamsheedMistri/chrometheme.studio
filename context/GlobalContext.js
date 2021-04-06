@@ -26,6 +26,7 @@ const initialState = {
 		welcome: true,
 		reset: false,
 		download: false,
+		share: false,
 	}
 }
 
@@ -125,6 +126,13 @@ export const GlobalProvider = ({ children }) => {
 		});
 	}
 
+	const importColors = (colors) => {
+		dispatch({
+			type: 'IMPORT_COLORS',
+			colors
+		});
+	}
+
 	const updateModal = (id, newValue) => {
 		dispatch({
 			type: 'UPDATE_MODAL',
@@ -135,6 +143,7 @@ export const GlobalProvider = ({ children }) => {
 
 	const [inactive, setInactive] = useState(false);
 	const [incognito, setIncognito] = useState(false);
+	const [shareResponse, setShareResponse] = useState(null);
 
 	return (
 		<GlobalContext.Provider value={{
@@ -143,11 +152,14 @@ export const GlobalProvider = ({ children }) => {
 			colorData,
 			updateColor,
 			resetToDefaults,
+			importColors,
 			updateModal,
 			inactive,
 			setInactive,
 			incognito,
 			setIncognito,
+			shareResponse,
+			setShareResponse,
 		}}>
 			{children}
 		</GlobalContext.Provider>
