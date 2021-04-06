@@ -2,3 +2,7 @@
 	color: #87b5ff !important;
 	text-decoration: none;
 }
+
+.closeButton {
+	margin-right: 10px !important;
+}

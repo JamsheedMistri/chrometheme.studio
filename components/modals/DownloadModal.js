@@ -5,8 +5,14 @@ import Modal from '../Modal';
 import styles from '../../styles/modals/DownloadModal.module.css';
 
 const DownloadModal = React.memo(() => {
-	const { modals, updateModal } = useContext(GlobalContext);
+	const { modals, updateModal, shareResponse } = useContext(GlobalContext);
 	const closeDownloadModal = () => updateModal('download', false);
+	const showShareModal = () => {
+		updateModal('download', false);
+		updateModal('share', true);
+	}
+
+	let shouldShowShareButton = shareResponse !== null && 'id' in shareResponse;
 
 	return (
 		<Modal open={modals.download} onClose={closeDownloadModal}>
@@ -26,16 +32,20 @@ const DownloadModal = React.memo(() => {
 				<li>
 					<p>At the top left, click the <b>Load unpacked</b> button. Find the newly unzipped folder that you downloaded and select it.</p>
 				</li>
-				<li>
-					<p>Voila! If you don't like the theme, you can click the <b>Undo</b> button and continue editing here until you like it.</p>
-				</li>
 			</ol>
 			<p>If you liked this site, please share it with your friends! I spent a while working on it and would love to see more people use it.</p>
 			<Button
 				variant="contained"
 				color="secondary"
 				onClick={closeDownloadModal}
+				className={styles.closeButton}
 			>Close</Button>
+			<Button
+				variant="contained"
+				color="primary"
+				onClick={showShareModal}
+				disabled={!shouldShowShareButton}
+			>{ shouldShowShareButton ? 'Share Theme' : 'Loading...' }</Button>
 		</Modal>
 	);
 });

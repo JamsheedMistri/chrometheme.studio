@@ -1,5 +1,6 @@
 import http from 'http';
 import archiver from 'archiver';
+import hexToRGB from '../../utils/HexToRGB';
 
 const generateThemeJSON = colors => {
 	let themeColorsJSON = {};
@@ -22,24 +23,11 @@ const generateThemeJSON = colors => {
 	};
 }
 
-/* Credit: https://stackoverflow.com/questions/684672/how-do-i-loop-through-or-enumerate-a-javascript-object */
-function hexToRGB(hex) {
-	var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-	return result ? [
-		parseInt(result[1], 16),
-		parseInt(result[2], 16),
-		parseInt(result[3], 16),
-	] : null;
-}
-
-
-export default function handler(req, res) {
+module.exports = (req, res) => {
 	if (req.method != 'POST' || req.body == 'undefined') {
-		res.statusCode = 400;
-		res.end(JSON.stringify({
+		return res.status(400).json({
 			error: "invalid request",
-		}));
-		return;
+		});
 	}
 
 	res.writeHead(200, {
