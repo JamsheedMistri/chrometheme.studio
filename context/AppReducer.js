@@ -5,30 +5,30 @@ const reducer = (state, action) => {
 				...state,
 				colors: {
 					...state.colors,
-					[action.id]: action.newColor
-				}
+					[action.id]: action.newColor,
+				},
 			}
 		case 'RESET_TO_DEFAULTS':
 			return {
 				...state,
-				colors: action.initialState.colors
+				colors: action.initialState.colors,
 			}
 		case 'IMPORT_COLORS':
 			return {
 				...state,
-				colors: action.colors
+				colors: action.colors,
 			}
 		case 'UPDATE_MODAL':
 			return {
 				...state,
 				modals: {
 					...state.modals,
-					[action.id]: action.newValue
-				}
+					[action.id]: action.newValue,
+				},
 			}
 		default:
-			return state;
+			return state
 	}
 }
 
-export default reducer;
+export default reducer

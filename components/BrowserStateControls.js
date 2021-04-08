@@ -1,19 +1,14 @@
-import React, { useContext } from 'react';
-import { GlobalContext } from '../context/GlobalContext';
-import Switch from '@material-ui/core/Switch';
-import Toolbar from './Toolbar';
-import styles from '../styles/BrowserStateControls.module.css';
+import React, { useContext } from 'react'
+import { GlobalContext } from '../context/GlobalContext'
+import Switch from '@material-ui/core/Switch'
+import Toolbar from './Toolbar'
+import styles from '../styles/BrowserStateControls.module.css'
 
 const BrowserStateControls = React.memo(() => {
-	const {
-		incognito,
-		setIncognito,
-		inactive,
-		setInactive,
-	} = useContext(GlobalContext);
+	const { incognito, setIncognito, inactive, setInactive } = useContext(GlobalContext)
 
-	const toggleInactive = event => setInactive(event.target.checked);
-	const toggleIncognito = event => setIncognito(event.target.checked);
+	const toggleInactive = (event) => setInactive(event.target.checked)
+	const toggleIncognito = (event) => setIncognito(event.target.checked)
 
 	return (
 		<div className={styles.container}>
@@ -27,7 +22,7 @@ const BrowserStateControls = React.memo(() => {
 				<Switch checked={inactive} onChange={toggleInactive} color="primary" />
 			</div>
 		</div>
-	);
-});
+	)
+})
 
-export default BrowserStateControls;
+export default BrowserStateControls

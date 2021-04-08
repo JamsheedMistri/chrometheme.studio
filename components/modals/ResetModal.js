@@ -1,18 +1,20 @@
-import React, { useContext } from 'react';
-import { GlobalContext } from '../../context/GlobalContext';
-import Button from '@material-ui/core/Button';
-import Modal from '../Modal';
-import styles from '../../styles/modals/ResetModal.module.css';
+import React, { useContext } from 'react'
+import { GlobalContext } from '../../context/GlobalContext'
+import Button from '@material-ui/core/Button'
+import Modal from '../Modal'
+import styles from '../../styles/modals/ResetModal.module.css'
 
 const ResetModal = React.memo(() => {
-	const { modals, updateModal, resetToDefaults, setInactive, setIncognito } = useContext(GlobalContext);
-	const closeResetModal = () => updateModal('reset', false);
+	const { modals, updateModal, resetToDefaults, setInactive, setIncognito } = useContext(
+		GlobalContext
+	)
+	const closeResetModal = () => updateModal('reset', false)
 
 	const confirm = () => {
-		setInactive(false);
-		setIncognito(false);
-		resetToDefaults();
-		closeResetModal();
+		setInactive(false)
+		setIncognito(false)
+		resetToDefaults()
+		closeResetModal()
 	}
 
 	return (
@@ -24,10 +26,12 @@ const ResetModal = React.memo(() => {
 				color="secondary"
 				className={styles.resetButton}
 				onClick={confirm}
-			>Reset</Button>
+			>
+				Reset
+			</Button>
 			<Button onClick={closeResetModal}>cancel</Button>
 		</Modal>
-	);
-});
+	)
+})
 
-export default ResetModal;
+export default ResetModal

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Card, Modal as MaterialModal } from '@material-ui/core';
-import styles from '../styles/Modal.module.css';
+import React from 'react'
+import { Card, Modal as MaterialModal } from '@material-ui/core'
+import styles from '../styles/Modal.module.css'
 
 const Modal = React.memo(({ children, open, onClose }) => (
 	<MaterialModal open={open} onClose={onClose} className={styles.modal}>
@@ -8,6 +8,6 @@ const Modal = React.memo(({ children, open, onClose }) => (
 			{children}
 		</Card>
 	</MaterialModal>
-));
+))
 
-export default Modal;
+export default Modal

@@ -5,7 +5,7 @@ import { ServerStyleSheets } from '@material-ui/core/styles'
 export default class MyDocument extends Document {
 	render() {
 		return (
-			<Html lang='en'>
+			<Html lang="en">
 				<Head />
 				<body>
 					<Main />
@@ -29,10 +29,6 @@ MyDocument.getInitialProps = async (ctx) => {
 
 	return {
 		...initialProps,
-		styles: [
-			...React.Children.toArray(initialProps.styles),
-			sheets.getStyleElement(),
-		],
+		styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
 	}
 }
-

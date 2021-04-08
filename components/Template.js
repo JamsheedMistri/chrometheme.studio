@@ -1,8 +1,8 @@
-import React from 'react';
-import Head from 'next/head';
-import { ThemeProvider } from '@material-ui/styles';
-import { createMuiTheme } from '@material-ui/core/styles';
-import { lightBlue, red } from '@material-ui/core/colors';
+import React from 'react'
+import Head from 'next/head'
+import { ThemeProvider } from '@material-ui/styles'
+import { createMuiTheme } from '@material-ui/core/styles'
+import { lightBlue, red } from '@material-ui/core/colors'
 
 const theme = createMuiTheme({
 	palette: {
@@ -11,10 +11,10 @@ const theme = createMuiTheme({
 			main: lightBlue[900],
 		},
 		secondary: {
-			main: red[900]
-		}
-	}
-});
+			main: red[900],
+		},
+	},
+})
 
 const Template = React.memo(({ children }) => (
 	<>
@@ -22,7 +22,10 @@ const Template = React.memo(({ children }) => (
 			<Head>
 				<title>Chrome Theme Studio</title>
 				<link rel="icon" href="/favicon.ico" />
-				<meta name="description" content="Create your own custom browser theme for Chromium-based browsers, including Google Chrome and Microsoft Edge, for free." />
+				<meta
+					name="description"
+					content="Create your own custom browser theme for Chromium-based browsers, including Google Chrome and Microsoft Edge, for free."
+				/>
 				<meta name="author" content="Jamsheed Mistri" />
 			</Head>
 			{children}
@@ -33,6 +36,6 @@ const Template = React.memo(({ children }) => (
 			}
 		`}</style>
 	</>
-));
+))
 
-export default Template;
+export default Template
