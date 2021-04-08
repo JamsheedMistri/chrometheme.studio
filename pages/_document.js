@@ -2,7 +2,7 @@ import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheets } from '@material-ui/core/styles'
 
-export default class MyDocument extends Document {
+export default class Doc extends Document {
 	render() {
 		return (
 			<Html lang="en">
@@ -16,7 +16,7 @@ export default class MyDocument extends Document {
 	}
 }
 
-MyDocument.getInitialProps = async (ctx) => {
+Doc.getInitialProps = async (ctx) => {
 	const sheets = new ServerStyleSheets()
 	const originalRenderPage = ctx.renderPage
 

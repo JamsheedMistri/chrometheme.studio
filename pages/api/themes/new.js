@@ -5,7 +5,7 @@ import hexToRGB from '../../../utils/HexToRGB'
 
 let cachedDatabase = null
 
-async function connectToDatabase(uri) {
+const connectToDatabase = async (uri) => {
 	if (cachedDatabase) return cachedDatabase
 
 	const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })

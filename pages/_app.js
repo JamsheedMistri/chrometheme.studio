@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import { GlobalProvider } from '../context/GlobalContext'
 
-function MyApp({ Component, pageProps }) {
+const App = ({ Component, pageProps }) => {
 	return (
 		<GlobalProvider>
 			<Component {...pageProps} />
@@ -9,4 +9,4 @@ function MyApp({ Component, pageProps }) {
 	)
 }
 
-export default MyApp
+export default App

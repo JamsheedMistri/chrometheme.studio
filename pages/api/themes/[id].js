@@ -4,7 +4,7 @@ import { MongoClient, ObjectID } from 'mongodb'
 
 let cachedDatabase = null
 
-async function connectToDatabase(uri) {
+const connectToDatabase = async (uri) => {
 	if (cachedDatabase) return cachedDatabase
 
 	const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })

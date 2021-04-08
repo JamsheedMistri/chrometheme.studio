@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { GlobalContext } from '../context/GlobalContext'
 
-export function getFrameColor() {
+export const getFrameColor = () => {
 	const { colors, inactive, incognito } = useContext(GlobalContext)
 	if (inactive && incognito) {
 		// inactive and incognito
@@ -18,12 +18,12 @@ export function getFrameColor() {
 	}
 }
 
-export function getToolbarColor() {
+export const getToolbarColor = () => {
 	const { colors } = useContext(GlobalContext)
 	return colors['toolbar']
 }
 
-export function getBackgroundTabColor() {
+export const getBackgroundTabColor = () => {
 	const { colors, inactive, incognito } = useContext(GlobalContext)
 	if (inactive && incognito) {
 		// inactive and incognito
@@ -40,17 +40,17 @@ export function getBackgroundTabColor() {
 	}
 }
 
-export function getBookmarkTextColor() {
+export const getBookmarkTextColor = () => {
 	const { colors } = useContext(GlobalContext)
 	return colors['bookmark_text']
 }
 
-export function getTabTextColor() {
+export const getTabTextColor = () => {
 	const { colors } = useContext(GlobalContext)
 	return colors['tab_text']
 }
 
-export function getTabBackgroundTextColor() {
+export const getTabBackgroundTextColor = () => {
 	const { colors, inactive, incognito } = useContext(GlobalContext)
 	if (inactive && incognito) {
 		// inactive and incognito
@@ -67,22 +67,22 @@ export function getTabBackgroundTextColor() {
 	}
 }
 
-export function getToolbarButtonIconColor() {
+export const getToolbarButtonIconColor = () => {
 	const { colors } = useContext(GlobalContext)
 	return colors['toolbar_button_icon']
 }
 
-export function getOmniboxTextColor() {
+export const getOmniboxTextColor = () => {
 	const { colors } = useContext(GlobalContext)
 	return colors['omnibox_text']
 }
 
-export function getOmniboxBackgroundColor() {
+export const getOmniboxBackgroundColor = () => {
 	const { colors } = useContext(GlobalContext)
 	return colors['omnibox_background']
 }
 
-export function isIncognito() {
+export const isIncognito = () => {
 	const { incognito } = useContext(GlobalContext)
 	return incognito
 }

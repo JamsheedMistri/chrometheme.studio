@@ -1,4 +1,4 @@
-export function downloadTheme(colors) {
+export const downloadTheme = (colors) => {
 	fetch('/api/generate', {
 		method: 'POST',
 		headers: {
@@ -20,7 +20,7 @@ export function downloadTheme(colors) {
 		})
 }
 
-export function addThemeToDatabase(colors, callback) {
+export const addThemeToDatabase = (colors, callback) => {
 	fetch('/api/themes/new', {
 		method: 'POST',
 		headers: {
