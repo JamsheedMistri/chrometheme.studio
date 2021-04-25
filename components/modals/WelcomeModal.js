@@ -33,7 +33,8 @@ const WelcomeModal = React.memo(() => {
 				</article>
 				<article className={styles.colSpan2}>
 					<div className={styles.stepIcon}>3</div>
-					Download your theme and use it on Google Chrome or Microsoft Edge for free
+					Download your theme and use it on browsers like Google Chrome, Microsoft Edge, or Brave
+					for free
 				</article>
 			</div>
 			<div className={styles.getStartedButton}>

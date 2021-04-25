@@ -54,8 +54,8 @@ const Share = () => {
 						download button below. A preview of the theme is shown below for your convenience.
 					</p>
 					<p>
-						This theme will work on Google Chrome, Microsoft Edge, and other Chromium-based browsers
-						that support native Chromium themes.
+						This theme will work on Google Chrome, Microsoft Edge, Brave, and other Chromium-based
+						browsers that support native Chromium themes.
 					</p>
 					<p>After you click the download button, installation instructions will be displayed.</p>
 					<Button variant="contained" color="primary" onClick={download} disabled={!loadedTheme}>
@@ -66,8 +66,8 @@ const Share = () => {
 					<h1>What is Chrome Theme Studio?</h1>
 					<p>
 						<Link href="/">Chrome Theme Studio</Link> is a tool that allows anyone to create a
-						custom browser theme. It works for most Chromium-based browsers, including Google Chrome
-						and Microsoft Edge.
+						custom browser theme. It works for most Chromium-based browsers, including Google
+						Chrome, Microsoft Edge, and Brave.
 					</p>
 					<p>
 						Want to try making your own custom theme? It's easy! Click the button below to enter the
