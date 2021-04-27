@@ -35,10 +35,7 @@ const DownloadModal = React.memo(() => {
 				</li>
 				<li>
 					<p>
-						Open a new tab and go to URL <span className={styles.link}>chrome://extensions</span>{' '}
-						(if you're on Google Chrome), <span className={styles.link}>edge://extensions</span> (if
-						you're on Microsoft Edge), or <span className={styles.link}>brave://extensions</span> if
-						you're on Brave.
+						Open a new tab and go to URL <span className={styles.link}>chrome://extensions</span>.
 					</p>
 				</li>
 				<li>
