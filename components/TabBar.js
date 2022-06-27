@@ -21,7 +21,7 @@ const TabBar = React.memo(() => {
 			<Tab
 				position="first"
 				title="Chromium"
-				favicon="https://www.chromium.org/_/rsrc/1438879449147/config/customLogo.gif"
+				favicon="https://www.chromium.org/_assets/customLogo.png"
 			/>
 			<Tab active title="Jamsheed Mistri" favicon="https://jmistri.com/favicon.ico" />
 			<Tab position="last" title="Hacker News" favicon="https://news.ycombinator.com/favicon.ico" />
