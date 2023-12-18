@@ -20,7 +20,7 @@ const TabBar = React.memo(() => {
 		<div className={styles.container} style={frameStyle}>
 			<Tab position="first" title="Chromium" favicon="https://i.imgur.com/0JP7I5d.png" />
 			<Tab active title="Jamsheed Mistri" favicon="https://jmistri.com/favicon.ico" />
-			<Tab position="last" title="Hacker News" favicon="https://news.ycombinator.com/favicon.ico" />
+			<Tab position="last" title="Hacker News" favicon="https://news.ycombinator.com/y18.svg" />
 			{shouldShowDivider && <div className={styles.newTabDivider} />}
 			<div className={styles.newTabButtonContainer} style={dividerStyle}>
 				<div className={styles.newTabButton} style={newTabButtonStyle}>
